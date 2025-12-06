@@ -116,5 +116,23 @@
             </audio>
         </div>
     </div>
+
+    <script>
+        // Get all audio elements
+        const audioElements = document.querySelectorAll('audio');
+        
+        // Add event listener to each audio element
+        audioElements.forEach(audio => {
+            audio.addEventListener('play', function() {
+                // Pause all other audio elements
+                audioElements.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
