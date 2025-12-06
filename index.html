@@ -118,15 +118,23 @@
     </div>
 
     <script>
+        console.log('Script loaded!');
+        
         // Get all audio elements
         const audioElements = document.querySelectorAll('audio');
+        console.log('Found audio elements:', audioElements.length);
         
         // Add event listener to each audio element
-        audioElements.forEach(audio => {
+        audioElements.forEach((audio, index) => {
+            console.log('Adding listener to audio', index + 1);
+            
             audio.addEventListener('play', function() {
+                console.log('Audio', index + 1, 'started playing');
+                
                 // Pause all other audio elements
-                audioElements.forEach(otherAudio => {
+                audioElements.forEach((otherAudio, otherIndex) => {
                     if (otherAudio !== audio) {
+                        console.log('Pausing audio', otherIndex + 1);
                         otherAudio.pause();
                     }
                 });
@@ -136,3 +144,4 @@
 </body>
 
 </html>
+
